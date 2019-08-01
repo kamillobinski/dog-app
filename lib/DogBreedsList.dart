@@ -125,25 +125,19 @@ class _HomePageState extends State<HomePage> {
           currentBreed = _breedsForDisplay[index].breed;
           currentBreedImage = _breedsForDisplay[index].breedPageImage;
           currentBreedLifespan = _breedsForDisplay[index].breedPageLifespan;
-          currentBreedShortHistory =
-              _breedsForDisplay[index].breedPageShortHistory;
-          currentBreedFriendlinessNumber =
-              _breedsForDisplay[index].breedPageFriendlinessNumber;
-          currentBreedFriendlinessText =
-              _breedsForDisplay[index].breedPageFriendlinessText;
-          currentBreedActivityNumber =
-              _breedsForDisplay[index].breedPageActivityNumber;
-          currentBreedActivityText =
-              _breedsForDisplay[index].breedPageActivityText;
+          currentBreedShortHistory = _breedsForDisplay[index].breedPageShortHistory;
+          currentBreedFriendlinessNumber = _breedsForDisplay[index].breedPageFriendlinessNumber;
+          currentBreedFriendlinessText = _breedsForDisplay[index].breedPageFriendlinessText;
+          currentBreedActivityNumber = _breedsForDisplay[index].breedPageActivityNumber;
+          currentBreedActivityText = _breedsForDisplay[index].breedPageActivityText;
           currentBreedPageSize = _breedsForDisplay[index].breedPageSize;
-          currentBreedPagePersonality =
-              _breedsForDisplay[index].breedPagePersonality;
+          currentBreedPagePersonality = _breedsForDisplay[index].breedPagePersonality;
           currentBreedPageHealth = _breedsForDisplay[index].breedPageHealth;
           currentBreedPageCare = _breedsForDisplay[index].breedPageCare;
           currentBreedPageFeeding = _breedsForDisplay[index].breedPageFeeding;
           currentBreedPageGrooming = _breedsForDisplay[index].breedPageGrooming;
-          currentBreedPageBehaviour =
-              _breedsForDisplay[index].breedPageBehaviour;
+          currentBreedPageBehaviour = _breedsForDisplay[index].breedPageBehaviour;
+          
         },
         child: Container(
           margin: const EdgeInsets.only(

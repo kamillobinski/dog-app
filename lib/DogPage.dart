@@ -557,23 +557,38 @@ class BreedTitleWithImage extends StatelessWidget {
           Container(
             child: new PurpleBackground(),
           ),
-          // Dog breed
+          // Back button
           GestureDetector(
-              child: Container(
-                margin: EdgeInsets.only(left: 26, top: 30.0),
+            child: Container(
+              margin: EdgeInsets.only(left: 23.0, top: 0.0),
+              height: 50.0,
+              width: 90.0,
+              child: Row(
+              children: <Widget>[ 
+                Icon( Icons.arrow_back_ios, color: Colors.grey[300], size: 20.0, ),
+                Container( margin: EdgeInsets.only(left: 3.0), child: Text('Back', style: TextStyle( color: Colors.grey[300], fontSize: 20.0, fontWeight: FontWeight.w400 ),),),
+              ],
+              ),
+            ),
+            onTap: () {
+              Route route = MaterialPageRoute(builder: (context) => MyApp());
+              Navigator.pushReplacement(context, route);
+            },
+          ),
+          // Dog breed
+          Container(
+                width: screenWidth,
+                margin: EdgeInsets.only(left: 26, top: 55.0),
                 child: Text(currentBreed,
+                overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 36.0,
                         color: Colors.white)),
               ),
-              onTap: () {
-                Route route = MaterialPageRoute(builder: (context) => MyApp());
-                Navigator.pushReplacement(context, route);
-              }),
           // Lifespan
           Container(
-            margin: EdgeInsets.only(left: 26, top: 65),
+            margin: EdgeInsets.only(left: 26, top: 90),
             child: Text(currentBreedLifespan,
                 style: TextStyle(
                     fontWeight: FontWeight.normal,
@@ -583,7 +598,7 @@ class BreedTitleWithImage extends StatelessWidget {
           // Breed image
           Container(
             height: 220.0,
-            margin: EdgeInsets.only(top: 90.0),
+            margin: EdgeInsets.only(top: 120.0),
             child: Center(child: Image.asset(currentBreedImage)),
           ),
         ],
@@ -598,7 +613,7 @@ class PurpleBackground extends StatelessWidget {
     return ClipPath(
       child: Container(
         width: double.infinity,
-        height: 300.0,
+        height: 330.0,
         color: purple,
       ),
       clipper: RoundedClipper(),
