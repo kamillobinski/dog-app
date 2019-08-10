@@ -41,18 +41,9 @@ class DogPageApp extends StatelessWidget {
   }
 }
 
-
 class DogPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
-    void showInSnackBar(String value) {
-    Scaffold.of(context).showSnackBar(new SnackBar(
-        content: new Text(value)
-    ));
-  }
-
     return Scaffold(
         appBar: PreferredSize(
             preferredSize: Size.fromHeight(0.0),
@@ -61,9 +52,8 @@ class DogPage extends StatelessWidget {
               elevation: 0.0,
             )),
             floatingActionButton: new FloatingActionButton(
-              onPressed: () {showInSnackBar("Some text");},
+              onPressed: null,
           backgroundColor: Colors.deepPurple[800],
-          //if you set mini to true then it will make your floating button small
           mini: true,
           child: new Icon(Icons.favorite_border),
       ),
