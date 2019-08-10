@@ -41,9 +41,18 @@ class DogPageApp extends StatelessWidget {
   }
 }
 
+
 class DogPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+
+    void showInSnackBar(String value) {
+    Scaffold.of(context).showSnackBar(new SnackBar(
+        content: new Text(value)
+    ));
+  }
+
     return Scaffold(
         appBar: PreferredSize(
             preferredSize: Size.fromHeight(0.0),
@@ -51,11 +60,18 @@ class DogPage extends StatelessWidget {
               backgroundColor: purple,
               elevation: 0.0,
             )),
-        body: Scrollbar(
+            floatingActionButton: new FloatingActionButton(
+              onPressed: () {showInSnackBar("Some text");},
+          backgroundColor: Colors.deepPurple[800],
+          //if you set mini to true then it will make your floating button small
+          mini: true,
+          child: new Icon(Icons.favorite_border),
+      ),
+        body: Scrollbar( 
             child:
                 ListView(physics: BouncingScrollPhysics(), children: <Widget>[
           new BreedTitleWithImage(),
-          Column(children: [
+          Column(children: [ 
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,20 +123,29 @@ class DogPage extends StatelessWidget {
                     )),
 
                 // Breed size
-                currentBreedPageSize == "empty"
-                    ? Container()
-                    : new BreedSizeTitle(),
-                currentBreedPageSize == "empty"
-                    ? Container()
-                    : new BreedSizeText(),
-                currentBreedPageSize == "empty"
-                    ? Container()
-                    : Container(
+                currentBreedPageSize == "empty" ? Container() : new BreedSizeTitle(),
+                currentBreedPageSize == "empty" ? Container() : new BreedSizeText(),
+                currentBreedPageSize == "empty" ? Container() : Container(
                         margin: EdgeInsets.only(
                             left: 26.0, top: 16.0, right: 26.0, bottom: 16.0),
                         child: Divider(
                           color: Colors.grey[300],
                         )),
+
+      // Expandable
+      /*Container(
+      margin: EdgeInsets.only( left: 26.0, right: 26.0),
+      child: ExpansionTile( 
+        title: Container (child: Text("Personality", style: TextStyle(
+                fontSize: 25.0,
+                color: purple,
+                fontWeight: FontWeight.w400))),
+        children: <Widget> [ Container ( margin: EdgeInsets.only(bottom: 16.0), child: Text(currentBreedPagePersonality, style: TextStyle(
+                fontSize: 16.0,
+                color: Colors.grey[600],
+                fontWeight: FontWeight.w300,
+                height: 1.1)))],
+      )),*/
 
                 // Breed personality
                 currentBreedPagePersonality == "empty"
@@ -599,7 +624,7 @@ class BreedTitleWithImage extends StatelessWidget {
           Container(
             height: 220.0,
             margin: EdgeInsets.only(top: 120.0),
-            child: Center(child: Image.asset(currentBreedImage)),
+            child: Center(child: Image.network(currentBreedImage)),
           ),
         ],
       ),

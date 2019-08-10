@@ -38,6 +38,7 @@ class _HomePageState extends State<HomePage> {
   List<Breed> _breedsForDisplay = List<Breed>();
 
   Future<List<Breed>> fetchNotes() async {
+    try {
     var url = 'https://kamillobinski.github.io/data/data.json';
     var response = await http.get(url);
 
@@ -48,8 +49,37 @@ class _HomePageState extends State<HomePage> {
       for (var noteJson in notesJson) {
         notes.add(Breed.fromJson(noteJson));
       }
-    } else {}
+    }
     return notes;
+    } catch (e) {_showDialog(); return null;}
+  }
+
+  void _showDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Container ( 
+        decoration: new BoxDecoration(
+        shape: BoxShape.rectangle,
+        color: purple.withOpacity(0.5),
+        ),
+        child: AlertDialog(
+          title: new Text("Ooops, something went wrong"),
+          content: new Text("Please, check your internet connection in order to use this app"),
+          actions: <Widget>[
+            new FlatButton(
+              child: new Text("Refresh", style: TextStyle( color: purple, fontSize: 18.0, fontWeight: FontWeight.w600 )),
+              onPressed: () {
+                Navigator.pop(context);
+                Route route = MaterialPageRoute(builder: (context) => MyApp());
+                Navigator.pushReplacement(context, route);
+              },
+            ),
+          ],
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -137,7 +167,7 @@ class _HomePageState extends State<HomePage> {
           currentBreedPageFeeding = _breedsForDisplay[index].breedPageFeeding;
           currentBreedPageGrooming = _breedsForDisplay[index].breedPageGrooming;
           currentBreedPageBehaviour = _breedsForDisplay[index].breedPageBehaviour;
-          
+
         },
         child: Container(
           margin: const EdgeInsets.only(
@@ -154,8 +184,9 @@ class _HomePageState extends State<HomePage> {
                 margin: EdgeInsets.only(top: 3.0),
                 decoration: new BoxDecoration(
                   image: DecorationImage(
-                    image: new AssetImage(
-                        _breedsForDisplay[index].breedListImage), // Breed image
+                    image: NetworkImage(_breedsForDisplay[index].breedListImage),
+                    /*new AssetImage(
+                        _breedsForDisplay[index].breedListImage),*/ // Breed image
                     fit: BoxFit.fill,
                   ),
                   shape: BoxShape.circle,
