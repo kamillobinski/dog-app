@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<List<Breed>> fetchNotes() async {
     try {
-    var url = 'https://kamillobinski.github.io/data/data.json';
+    var url = 'https://kamillobinski.github.io/data/Dog-App-Data/data.json';
     var response = await http.get(url);
 
     var notes = List<Breed>();

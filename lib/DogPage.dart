@@ -629,7 +629,13 @@ class PurpleBackground extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: 330.0,
-        color: purple,
+        //color: purple,
+         decoration: new BoxDecoration( color: purple,
+                  image: DecorationImage(
+                    image: NetworkImage('https://raw.githubusercontent.com/kamillobinski/data/master/Dog-App-Data/Dog%20Paw%20Background/background.png'),
+                    fit: BoxFit.fill,
+                  ),
+                ),
       ),
       clipper: RoundedClipper(),
     );
