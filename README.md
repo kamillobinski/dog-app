@@ -97,7 +97,7 @@ Here are some previews of the app's main features:
 
 | All | Homepage | BreedPage |
 |   ---  |  ---  |  ---  |
-|  <img src="./scr/dog_app_gif.gif" width="261" height="548"/> | View a list of dog breeds <br/><img src="./scr/dog_app_1.jpg" width="261" height="548"/> | <img src="./scr/dog_app_2.jpg" width="261" height="548"/> | 
+|  <img src="./scr/dog_app_gif.gif" width="261" height="548"/> | <img src="./scr/dog_app_1.jpg" width="261" height="548"/> | <img src="./scr/dog_app_2.jpg" width="261" height="548"/> | 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
