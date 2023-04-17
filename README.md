@@ -35,7 +35,6 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -72,9 +71,6 @@ To get a local copy up and running follow these simple steps.
    ```
 
 2. Open the cloned repository in Android Studio or any other code editor
-   ```sh
-   docker compose -f docker-compose-dev.yml up -d
-   ```
 
 3. Install the necessary dependencies by running the following command in the terminal
    ```sh
